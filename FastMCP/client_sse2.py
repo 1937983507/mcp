@@ -15,7 +15,7 @@ from fastmcp import Client
 # client = Client(config)
 
 # 初始化客户端
-client = Client("http://127.0.0.1:8000/sse")
+client = Client("http://127.0.0.1:8290/sse")
 
 async def main():
     async with client:
@@ -33,7 +33,7 @@ async def main():
                 print(f"Tags: {fastmcp_meta.get('tags', [])}")
 
         # 调用工具
-        result = await client.call_tool("add", {"a": 1, "b": 2})
+        result = await client.call_tool("calculator", {"a": 1, "b": 2, "operation":"add"})
         print(f"call tool result: {result}")
 
 if __name__ == "__main__":
